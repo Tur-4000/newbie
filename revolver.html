@@ -1,0 +1,15 @@
+<meta charset="utf-8">
+<script>
+
+var n = 0;
+do {
+	if((Math.random() * 6) < 1) {
+		alert('Финита ля комедия');
+		break;
+	}
+	n++;
+} while(parseInt(prompt('1 - играем, друое - стоп:')) == 1);
+
+alert('Раундов сыграно: ' + n);
+
+</script>

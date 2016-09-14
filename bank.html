@@ -1,0 +1,30 @@
+<meta charset="utf-8">
+<script>
+
+var vklad = parseInt(prompt("Введите сумму вклада:"));
+while(isNaN(vklad) || vklad <= 0) {
+	alert('Недопустимое значение \nДопустимы только положительные числа');
+	vklad = parseInt(prompt("Введите сумму вклада:"));
+}
+
+var stavka = parseInt(prompt('Введите процентную ставку:'));
+while(isNaN(stavka)) {
+	alert('вы ввели не число :(');
+	stavka = parseInt(prompt('Введите процентную ставку:'));
+}
+
+var srok = parseInt(prompt('Введите срок вклада:'));
+while(isNaN(srok) || srok <= 0) {
+	alert('Недопустимое значение \nДопустимы только положительные числа');
+	srok = parseInt(prompt('Введите срок вклада:'));
+}
+
+for(var i = 1; i <= srok; i++) {
+	vklad = vklad + (vklad/100 * stavka);
+	alert('Прошло лет: ' 
+			+ i 
+			+ ', сумма на счету: ' 
+			+ vklad.toFixed(2));
+}
+
+</script>

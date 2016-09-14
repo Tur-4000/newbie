@@ -1,0 +1,19 @@
+<meta charset="utf-8">
+<script>
+
+var at1 = 14;
+var at2 = 19;
+var bt1 = 32;
+var bt2 = 36;
+
+var r = parseInt(prompt('Введите число:'));
+
+if(isNaN(r)) {
+	alert('вы ввели не число :(');
+} else if ((r >= at1) && (r <= at2) || (r >= bt1) && (r <= bt2)) {
+	alert('Цель поражена!');
+} else {
+	alert('Промашечка вышла... :(');
+}
+
+</script>
