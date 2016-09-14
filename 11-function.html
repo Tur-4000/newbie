@@ -13,15 +13,24 @@ function getCard() {
 function getSum(arr) {
 	var sum = 0;
 	for(i=0; i<arr.length; i++) {
-		var card = parseInt(arr[i]);
-		if(isNaN(card)) {
-			if(card == 'A') {
-				sum = sum + 11;
+		var card = arr[i];
+		if(card != 'A') {
+			if(card == 'J' || card == 'Q' || card == 'K') {
+			sum = sum + 10;
 			} else {
-				sum = sum + 10;
+			sum = sum + parseInt(card);
 			}
-		} else {
-			sum = sum + card;
+		}
+	}
+
+	for(var i=0; i<arr.length; i++){
+		var card = arr[i];
+		if(card == 'A') {
+			if(sum > 10) {
+				sum = sum + 1;
+			} else {
+				sum = sum + 11;
+			}
 		}
 	}
 	return sum;
