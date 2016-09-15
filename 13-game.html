@@ -37,23 +37,37 @@ function getSum(arr) {
 }
 
 function getStatus() {
-	return 'Дилер: ' + dealer.join(' ') + ' Игрок: ' + player.join(' ') + '.';
+	return 'Дилер: ' + dealer.join(' ') + ' Игрок: ' + player.join(' ') + ' - ' + getSum(player);
 }
 
 var dealer = [getCard()];
 var player = [getCard(), getCard()];
 
-var answer = '';
-do {
-	answer = prompt(getStatus() + ' Хотите ещё карту? 1 - да, иначе - нет');
+if(getSum(player) == 21) {
+	alert('Дьявольское везение! \nBlack Jack на раздаче! $_$');
+} else {
+	var answer = '';
+	do {		
+		answer = prompt(getStatus() + ' Хотите ещё карту? 1 - да, иначе - нет');
 
-	// сдаём карту игроку, либо прекращаем игру
-	if(answer == '1') {
-		player.push(getCard());
-	}
+		// сдаём карту игроку, либо прекращаем игру
+		if(answer == '1') {
+			player.push(getCard());
+			
+			sum = getSum(player);
+			if(sum > 21) {
+				alert(getSum(player) + ' Перебор T_T \nВы проиграли\n' + getStatus());
+				break;
+			} else if (sum == 21) {
+				alert(getSum(player) + ' ОЧКО! \nСокрушительная победа!');
+				break;
+			}
+		}
+			
+		alert(getStatus());
+	} while(answer == '1');
+}
 
-	alert(getStatus());
-} while(answer == '1');
 
 
 </script>
