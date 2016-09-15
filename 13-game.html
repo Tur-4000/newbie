@@ -62,12 +62,30 @@ if(getSum(player) == 21) {
 				alert(getSum(player) + ' ОЧКО! \nСокрушительная победа!');
 				break;
 			}
+		} else {
+			// игрок закончил брать карты
+			// теперь карты берёт дилер
+			while(getSum(dealer) < 17) {
+				dealer.push(getCard());
+			};
+			// проверяем результат
+			var sumDealer = getSum(dealer);
+			var sumPlayer = getSum(player);
+
+			if(sumDealer == 21) {
+				alert('У дилера Black Jack! T_T ' + getStatus());
+			} else if(sumDealer > 21) {
+				alert('У дилера перебор! ]:-> ' + getStatus());
+			} else if(sumDealer == sumPlayer) {
+				alert('Ничья! о_О ' + getStatus());
+			} else if(sumPlayer > sumDealer) {
+				alert('Выигрыш :) ' + getStatus());
+			} else {
+				alert('Проигрыш :) ' + getStatus());
+			}
 		}
-			
-		alert(getStatus());
+		
 	} while(answer == '1');
 }
-
-
 
 </script>
